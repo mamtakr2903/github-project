@@ -19,4 +19,5 @@ phases:
       - echo "Build completed on date"
      
 artifacts:
-  files: my-s3artifacts
+  files:
+    - '**/*'
