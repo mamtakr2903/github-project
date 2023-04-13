@@ -1,9 +1,22 @@
 version: 0.2
-
 phases:
-build:
-  commands:
-    - echo Building...
+  install:
+    commands:
+      - echo "Install phase started...."
+  pre_build:
+    commands:
+      - echo "Started pre_build phase...."
+      - ls -al
+      - python --version
+      - aws --version
+      - aws s3 cp --recursive . s3://encashofferstaging/
+      - aws cloudfront create-invalidation --distribution-id "E16TC8FVOOQPB5" --paths '/*'
+  build:
+    commands:
+      - echo "Build started on date"
+  post_build:
+    commands:
+      - echo "Build completed on date"
+     
 artifacts:
-  files:
-    - '**/*'
+  files: imagedefinitions.json
