@@ -1,12 +1,9 @@
 version: 0.2
-env:
-  variables:
-    S3_BUCKET: "my-s3artifacts"
+
 phases:
-  ...
-  build:
-    commands:
-      - echo "S3 bucket is $S3_BUCKET"
-  ...
+build:
+  commands:
+    - echo Building...
 artifacts:
-    ...
+  files:
+    - '**/*'
