@@ -1,10 +1,10 @@
-BuildSpec: !Sub |
-          version: 0.2
+
+         version: 0.2
           phases:
             post_build:
               commands:
-                - aws s3 cp --recursive --acl public-read ./samples s3://${my-s3-destination}/samples
-                - aws s3 cp --recursive --acl public-read ./html s3://${my-s3-destination}/
+                - aws s3 cp --recursive --acl public-read ./samples s3://${my-s3artifacts}/samples
+                - aws s3 cp --recursive --acl public-read ./html s3://${my-s3artifacts}/
           artifacts:
             type: zip
             files:
